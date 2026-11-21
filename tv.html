@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#140b2e">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <title>DessinTel · Écran TV</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="DessinTel">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=1">
+  <script src="js/vendor/supabase.js" defer></script>
+  <script src="js/vendor/qrcode.js" defer></script>
+  <script type="module" src="js/tv.js?v=1"></script>
+</head>
+<body class="tv">
+  <header class="tv-top">
+    <div class="logo">Dessin<span>Tel</span></div>
+    <div id="phase" class="tv-phase"></div>
+    <div class="tv-corner"><div id="qrMini" class="qrbox mini"></div><div>Code<br><b id="codeMini" class="code"></b></div><span id="conn" class="conn"></span></div>
+  </header>
+  <main class="tv-main">
+    <div id="spot" class="spot"></div>
+    <div id="feed" class="feed tv-feed" hidden></div>
+  </main>
+  <div id="qrBig" hidden></div>
+  <button id="start" class="overlay start"><span class="logo">Dessin<span>Tel</span></span><span class="btn huge go">▶ Lancer l’écran</span><small class="muted">(active le son et le plein écran)</small></button>
+  <div id="askCode" class="overlay" hidden>
+    <form id="askForm" class="sheet center">
+      <h2>📺 Écran TV</h2>
+      <p class="muted">Entre le code de la salle affiché sur le téléphone du maître du jeu.</p>
+      <input name="code" class="code-input" maxlength="4" autocomplete="off" placeholder="CODE">
+      <button class="btn big go">Afficher</button>
+    </form>
+  </div>
+</body>
+</html>

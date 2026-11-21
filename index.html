@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#140b2e">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <title>DessinTel · Le téléphone dessiné</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="DessinTel">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=1">
+  <script src="js/vendor/supabase.js" defer></script>
+  <script type="module" src="js/home.js?v=1"></script>
+</head>
+<body class="home">
+  <main class="home-wrap">
+    <h1 class="logo" title="Clique-moi !">Dessin<span>Tel</span></h1>
+    <p class="tagline">Le téléphone arabe en dessins : une phrase devient un dessin, qui redevient une phrase… et on découvre le résultat tous ensemble.</p>
+
+    <section class="card">
+      <h2>🙋 Je joue</h2>
+      <form id="joinForm" class="join-code">
+        <input name="code" inputmode="text" autocomplete="off" autocapitalize="characters" maxlength="4" placeholder="CODE" aria-label="Code de la salle">
+        <button class="btn go">Rejoindre</button>
+      </form>
+      <p class="muted small">Le plus simple : scanne le QR code affiché par le maître du jeu.</p>
+    </section>
+
+    <section class="card">
+      <h2>🎩 J’anime</h2>
+      <a id="create" class="btn big">Créer une partie</a>
+      <a id="resume" class="btn ghost" hidden>↩️ Reprendre la partie <b></b></a>
+      <a id="tv" class="btn ghost">📺 Ouvrir l’écran TV (optionnel)</a>
+    </section>
+
+    <details class="card how">
+      <summary>Comment ça marche ?</summary>
+      <ol>
+        <li>Le maître du jeu crée une partie : un code et un QR code s’affichent. Il peut jouer aussi.</li>
+        <li>Chacun écrit une phrase dans son carnet (ou tire une idée au hasard 🎲).</li>
+        <li>Les carnets tournent : tu dessines la phrase du voisin, le suivant devine ton dessin, puis le suivant dessine sa réponse…</li>
+        <li>Quand chaque carnet a fait le tour, on les rejoue page par page, sur les téléphones et sur la TV. Fous rires garantis.</li>
+        <li>Pour finir, on vote : 🎨 plus beau dessin, 😂 plus drôle, 🕵️ meilleur pour deviner.</li>
+      </ol>
+      <p class="muted small">De 3 à 16 joueurs, un téléphone chacun. Personne n’attend : tout le monde joue en même temps.</p>
+    </details>
+
+    <p id="localNote" class="note" hidden>🧪 Mode local : les onglets de ce navigateur jouent entre eux (pour tester).</p>
+    <p class="muted small center"><a href="https://cdesmottes.fr">cdesmottes.fr</a></p>
+  </main>
+</body>
+</html>
