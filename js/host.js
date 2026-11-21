@@ -425,8 +425,6 @@ const meActs = {
 };
 function renderMe() {
   meDraft ||= me ? { ...me } : { name: '', avatar: AVATARS[Math.floor(Math.random() * AVATARS.length)], color: COLORS[Math.floor(Math.random() * COLORS.length)] };
-  const typed = $('#meName')?.value;
-  if (typed != null) meDraft.name = typed;
   const list = roster.inGroup(state.settings.group).filter((p) => !Object.values(state.players).some((x) => x.id !== me?.id && sameName(x.name, p.name) && !x.gone));
   $('#meBody').innerHTML = `<div class="join-head"><span class="av xl" style="--c:${esc(meDraft.color)}">${esc(meDraft.avatar)}</span><div><h2>🙋 Je joue aussi</h2><p class="muted small">Ce téléphone reste le maître du jeu, et tu reçois tes phrases et dessins à faire comme les autres.</p></div></div>
     ${list.length ? `<div class="lbl">Choisis ton prénom</div><div class="grid-who">${list.map((p) => `<button type="button" class="who-chip ${sameName(p.name, meDraft.name) ? 'on' : ''}" data-act="mePick" data-id="${esc(p.id)}" style="--c:${esc(p.color)}">${avatarBubble(p)}${esc(p.name)}</button>`).join('')}</div>` : ''}
@@ -436,6 +434,14 @@ function renderMe() {
     <button class="btn big go" data-act="meOk">${me ? 'Enregistrer' : 'Je joue ! 🎨'}</button>
     <div class="row">${me ? '<button class="btn ghost" data-act="meOff">🙅 Je ne joue plus</button>' : ''}<button class="btn ghost" data-act="close">Fermer</button></div>`;
 }
+
+// Le prénom tapé est gardé à chaque frappe (sinon un nouveau rendu l'écraserait).
+$('#meBody').addEventListener('input', (e) => {
+  if (e.target.id === 'meName' && meDraft) meDraft.name = e.target.value;
+});
+$('#meBody').addEventListener('keydown', (e) => {
+  if (e.target.id === 'meName' && e.key === 'Enter') meActs.meOk();
+});
 
 // ---------- Joueurs enregistrés & groupes ----------
 let rFilter = '';
